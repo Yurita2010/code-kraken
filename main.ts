@@ -1,11 +1,13 @@
 let code = 0
-basic.showLeds(`
-    . # # # .
-    # . . . .
-    # . . . .
-    # . . . .
-    . # # # .
-    `)
+if (code == 0) {
+    basic.showLeds(`
+        . # # # .
+        # . . . .
+        # . . . .
+        # . . . .
+        . # # # .
+        `)
+}
 basic.forever(function () {
     if (code == 0 && input.buttonIsPressed(Button.A)) {
         basic.showLeds(`
@@ -61,5 +63,60 @@ basic.forever(function () {
             `)
         basic.pause(200)
         code += 5
+    }
+    if (code == 1 && (input.buttonIsPressed(Button.A) || input.logoIsPressed())) {
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+        basic.pause(200)
+        code = 0
+    }
+    if (code == 3 && (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B))) {
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+        basic.pause(200)
+        code = 0
+    }
+    if (code == 6 && (input.logoIsPressed() || input.buttonIsPressed(Button.B))) {
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+        basic.pause(200)
+        code = 0
+    }
+    if (code == 10 && (input.logoIsPressed() || input.buttonIsPressed(Button.B))) {
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+        basic.pause(200)
+        code = 0
+    }
+    if (code == 15 && (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B))) {
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+        basic.pause(200)
+        code = 0
     }
 })
