@@ -21,16 +21,25 @@ basic.forever(function () {
         basic.pause(200)
         code = 9
     }
-    if (code == 4 && (input.logoIsPressed() || input.buttonIsPressed(Button.B))) {
+    if (code == 4 && (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B))) {
         basic.pause(200)
         code = 9
     }
-    if (code == 5 && (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B))) {
+    if (code == 5 && (input.logoIsPressed() || input.buttonIsPressed(Button.B))) {
         basic.pause(200)
         code = 9
     }
 })
 basic.forever(function () {
+    if (code == 0) {
+        basic.showLeds(`
+            . # # # .
+            # . . . .
+            # . . . .
+            # . . . .
+            . # # # .
+            `)
+    }
     if (code == 9) {
         basic.showLeds(`
             # . . . #
